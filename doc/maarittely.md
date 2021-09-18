@@ -1,6 +1,6 @@
 # Määrittelydokumentti
 
-#### Aihe: Luolastogeneraattori
+#### Aihe: Luolastogeneraattori: algoritmivertailua
 #### Tekijä: Benjamin Blinnikka, tietojenkäsittelytieteen kandidaattiohjelma
 #### Kieli: Suomi
 
@@ -21,6 +21,8 @@ Gradle. Ohessa hallitsen Javan käytön ja tunnen pintapuolin Pythonin.
 
 ### Tavoite
 
+#### Viikon 1 rajaus
+
 Projektina toimii luolastogeneraattorin rakentaminen, joka tulee koostumaan lähtökohtaisesti kolmesta osasta:
 
 1. Huoneiden rakentaminen / muodostaminen ja levittäminen
@@ -34,11 +36,30 @@ päälle. Seuraavaksi ohjelma määrittää huoneiden välille reitit siten, ett
 Lopuksi ohjelman muodostaessa annetun lukumäärän luolia välille reitit, tarkistetaan jääkö karttaan luolia, joihin
 yksikään reitti ei koske ja siivotaan nämä pois kartalta.
 
+#### Viikon 2 rajaus
+
+Ensimmäisen viikon palautteen ja projektin seuraavien askeleiden pohtimisen myötä olen rajannut tämän kurssin aikaiseksi
+tavoitteeksi rakentaa pari-kolme käytävistönmuodostuslalgoritmia, joita sitten vertailen. Tämän myötä ohjelman toimivuus
+rajautuu siten, että laajempien huoneiden luolastojen sijaan generoidaan varsinaisia labyrintteja, joiden suoritusaikoja
+näytetään ja verrataan. En tuntunut pääsevän aivan alkuun kokonaisuuden hahmottamisen kanssa, joten nykyinen rajaus on
+huomattavasti kustannustehokkaampi (ja järkevämpi kanditutkielman kirjoittelun ohessa) ajankäytön osalta.
+
+##### Jatkokehitys
+
+Viikon 2 rajauksen myötä ohjelmaa voisi myöhemmin laajentaa ensimmäisen rajauksen kaltaiseksi mikäli aikaa ja intoa
+liikenee joskus tulevaisuudessa.
+
 ### Tietorakenteet ja algoritmit
 
-Toistaiseksi ohjelmassa käytettävät tietorakenteet ja algoritmit ovat määrittelemättömiä epävarmuuteen ja 
-tietämättömyyteen pohjautuen. Tämä osio tarkentuu tulevalla viikolla. Aikavaativuuksia voisi pohtia ja spekuloida, mutta
-jääköön se algoritmimäärittelyn yhteyteen.
+Ohjelmassa käytetään lähtökohtaisesti Wilsonin algoritmia sekä satunnaistetutua Primin algoritmia. Tietorakenteet tulevat
+nykyisen näkemykseni mukaan olemaan hyvin vahvasti taulukko- ja mappirakenteisia. Tietorakenneosio tarkentuu
+implementaation myötä.
+
+#### Vaativuudet
+
+Wilsonin algoritmin vaativuus ei ole niin suoraviivainen, joten sitä pitää vielä tutkia.
+
+Satunnaistetun Primin algoritmin aikavaativuus äärellisessä ruudukossa on O(n²)
 
 ### Läpikäytyjä lähteitä
 
