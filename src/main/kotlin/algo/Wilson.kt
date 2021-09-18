@@ -16,4 +16,16 @@ class Wilson {
 
         return ruudukko
     }
+
+    /**
+     * Varsinaisen algoritmin ajaminen
+     */
+    fun muunnaLabyrintiksi() {
+        /* Kuvausta
+           1. Aloitetaan valitsemalla satunnaisesti aloitusruutu ja pidetään kirjaa koskemattomista ruuduista
+           2. Suoritetaan algoritmia luupissa niin kauan kun on koskemattomia ruutuja
+              2.1. 
+           3. Palautetaan labyrintti
+         */
+    }
 }

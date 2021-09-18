@@ -76,3 +76,5 @@ https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_a
 [How to code your own procedural dungeon map generator using the Random Walk Algorithm](
 https://www.freecodecamp.org/news/how-to-make-your-own-procedural-dungeon-map-generator-using-the-random-walk-algorithm-e0085c8aa9a/
 )
+
+[Maze Generation: Wilson's algorithm](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm)
