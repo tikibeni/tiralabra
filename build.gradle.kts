@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.30"
+    jacoco
 }
 
 group = "me.bblinnik"
@@ -12,11 +13,13 @@ repositories {
 }
 
 dependencies {
+    implementation("org.junit.jupiter:junit-jupiter:5.7.0")
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
-    useJUnit()
+    useJUnitPlatform()
+    finalizedBy("jacocoTestReport")
 }
 
 tasks.withType<KotlinCompile>() {
