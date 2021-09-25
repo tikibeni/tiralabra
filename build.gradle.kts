@@ -5,6 +5,7 @@ plugins {
     kotlin("jvm") version "1.5.30"
     id("io.gitlab.arturbosch.detekt").version("1.18.0")
     jacoco
+    application
 }
 
 group = "me.bblinnik"
@@ -15,6 +16,10 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass.set("luolastogeneraattori.MainKt")
+}
+
 // Projektin riippuvuudet
 dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
@@ -22,10 +27,9 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-// Testeihin käytetään JUnitia, jonka pohjalta luodaan raportti
-tasks.test {
-    useJUnitPlatform()
-    finalizedBy("jacocoTestReport")
+jacoco {
+    toolVersion = "0.8.7"
+    applyTo(tasks.run.get())
 }
 
 // Detekt-asetukset
@@ -38,9 +42,9 @@ detekt {
 
     reports {
         html.enabled = true
-        xml.enabled = true
-        txt.enabled = true
-        sarif.enabled = true
+        xml.enabled = false
+        txt.enabled = false
+        sarif.enabled = false
     }
 }
 
@@ -50,4 +54,21 @@ tasks.withType<KotlinCompile>() {
 
 tasks.withType<Detekt>().configureEach {
     jvmTarget = "11"
+}
+
+// Testeihin käytetään JUnitia, jonka pohjalta luodaan raportti
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+// Jacoco-raportin määrittely
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    // Muodostetaan toistaiseksi vain html-muotoinen raportti
+    reports {
+        xml.required.set(false)
+        csv.required.set(false)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
 }
