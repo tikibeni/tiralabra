@@ -18,3 +18,9 @@ Lisäksi Detektin ajaminen luo raportin kohteeseen `build/reports/detekt/detekt.
 
 Toistaiseksi konkreettisella tasolla ei mitään merkittävää (pl. ruudukon luonti) ensimmäisen algoritmin ollessa
 keskeneräinen.
+
+## Jacoco-raportti
+
+Viimeisin raportti näyttää tältä:
+
+![kattavuus](./img/kattavuus-250921.png "Testikattavuus 25.9.2021")
