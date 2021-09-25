@@ -6,11 +6,11 @@ Aloittamani harjoitustyö kurssilla **TKT20010 (Aineopintojen harjoitustyö: Tie
 
 [Linkki](./doc/maarittely.md) määrittelydokumenttiin.
 
-[Linkki](./doc/ohje.md) käyttöohjeeseen.
+[Linkki](./doc/ohje.md) käyttö- ja asennusohjeeseen.
 
-[Linkki](./doc/testaus.md) testausdokumenttiin (TODO).
+[Linkki](./doc/testaus.md) testausdokumenttiin.
 
-[Linkki](./doc/toteutus.md) toteutusdokumenttiin (TODO).
+[Linkki](./doc/toteutus.md) toteutusdokumenttiin.
 
 [Linkki](./doc/tuntikirjanpito.md) tuntikirjanpitoon.
 
@@ -18,7 +18,7 @@ Aloittamani harjoitustyö kurssilla **TKT20010 (Aineopintojen harjoitustyö: Tie
 
 * [Viikko 1](doc/weekly/viikkoraportti-1.md)
 * [Viikko 2](doc/weekly/viikkoraportti-2.md)
-* Viikko 3
+* [Viikko 3](doc/weekly/viikkoraportti-3.md)
 * Viikko 4
 * Viikko 5
 * Viikko 6
