@@ -34,4 +34,4 @@ miettimään.
 Otan selvää, millä laajuudella projektia kannattaa lähteä implementoimaan, jonka myötä tekstikäyttöliittymäpohjaisen
 projektin ensiaskeleiden rakentamista, kuten huonerakentaja-algoritmin tekeminen.
 
-## Tarkka ajankäyttö [täältä](./tuntikirjanpito.md).
+## Tarkka ajankäyttö [täältä](../tuntikirjanpito.md).

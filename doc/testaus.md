@@ -1,3 +1,21 @@
 # Testaus
 
-Tullaan suorittamaan JUnitilla. Lisää infoa myöhemmin.
+## Testien ajaminen
+
+Yksikkötestit juuresta komennolla `./gradlew test`.
+
+Tyylitarkastus juuresta komennolla `./gradlew detekt`.
+
+## Yksikkötestauksen kattavuus
+
+Viimeisimmän tilanteen testikattavuudesta saa generoitua komennolla `./gradlew test` juurihakemistossa.
+
+Komento luo Jacoco-raportin kohteeseen `build/jacocoHtml/index.html`
+
+Lisäksi Detektin ajaminen luo raportin kohteeseen `build/reports/detekt/detekt.html`
+
+## Mitä on testattu, miten ja millaisilla syötteillä
+
+Toistaiseksi konkreettisella tasolla ei mitään merkittävää (pl. ruudukon luonti) ensimmäisen algoritmin ollessa
+keskeneräinen.
+

@@ -39,10 +39,15 @@ yksikään reitti ei koske ja siivotaan nämä pois kartalta.
 #### Viikon 2 rajaus
 
 Ensimmäisen viikon palautteen ja projektin seuraavien askeleiden pohtimisen myötä olen rajannut tämän kurssin aikaiseksi
-tavoitteeksi rakentaa pari-kolme käytävistönmuodostuslalgoritmia, joita sitten vertailen. Tämän myötä ohjelman toimivuus
+tavoitteeksi rakentaa pari käytävistönmuodostuslalgoritmia, joita sitten vertailen. Tämän myötä ohjelman toimivuus
 rajautuu siten, että laajempien huoneiden luolastojen sijaan generoidaan varsinaisia labyrintteja, joiden suoritusaikoja
 näytetään ja verrataan. En tuntunut pääsevän aivan alkuun kokonaisuuden hahmottamisen kanssa, joten nykyinen rajaus on
 huomattavasti kustannustehokkaampi (ja järkevämpi kanditutkielman kirjoittelun ohessa) ajankäytön osalta.
+
+Algoritmit:
+
+1. Wilsonin algoritmi
+2. Satunnaistettu Primin algoritmi
 
 ##### Jatkokehitys
 
@@ -57,7 +62,9 @@ implementaation myötä.
 
 #### Vaativuudet
 
-Wilsonin algoritmin vaativuus ei ole niin suoraviivainen, joten sitä pitää vielä tutkia.
+Wilsonin algoritmissa on huonona puolena se, ettei se teoriassa tietyissä tilanteissa välttämättä ikinä pääse
+lopputulokseen. Ideaalitilanteessa algoritmi löytäisi suoran reitin alkupisteestä loppupisteeseen, jonka jälkeen
+ideaalisuus toistuisi siten, että satunnaisruudusta löytyisi suora reitti jo rakennettuun reittiin.
 
 Satunnaistetun Primin algoritmin aikavaativuus äärellisessä ruudukossa on O(n²)
 

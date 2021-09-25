@@ -26,4 +26,4 @@ Implementoin edellämainitut algoritmit loppuun Kotlinilla, jonka jälkeen raken
 rakennan ympärille yksinkertaisen tekstikäyttöliittymän, joka mahdollistaa erikokoisten käytävistöjen luonnin ja
 vertailun. Lopuksi käytettyjen tietorakenteiden räätälöity toteutus.
 
-## Tarkka ajankäyttö [täältä](./tuntikirjanpito.md).
+## Tarkka ajankäyttö [täältä](../tuntikirjanpito.md).

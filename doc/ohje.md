@@ -3,20 +3,43 @@
 ## Ohjelman kloonaus
 Komentorivillä haluamassasi kohteessa jollakin seuraavista menetelmistä:
 
-SSH: `git clone git@github.com:tikibeni/luolastogen.git`
+SSH: 
+```
+git clone git@github.com:tikibeni/luolastogen.git
+```
 
-HTTPS: `git clone https://github.com/tikibeni/luolastogen.git`
+HTTPS:
+```
+git clone https://github.com/tikibeni/luolastogen.git
+```
 
-GitHub CLI: `gh repo clone tikibeni/luolastogen`
+GitHub CLI:
+```
+gh repo clone tikibeni/luolastogen
+```
 
 ## Ohjelman asennus
 
-Tulee ohjelman rakentamisen myötä.
+Projektin asennus projektijuuren kautta komennolla: `./gradlew install` ja `./gradlew build`
 
 ## Ohjelman ajaminen ja testit
 
-Tulevat ohjelman rakentamisen myötä.
+Ohjelman ajaminen projektijuuren kautta komennolla: 
+```
+./gradlew run
+```
+
+Testien ajaminen projektijuuren kautta komennolla:
+```
+./gradlew test
+```
+
+Lisää testauksesta [täältä](testaus.md)
+
 
 ## Ohjelman käyttö
 
-TBA
+Toistaiseksi ohjelman käyttö rajautuu edellämainittuihin komentoihin. Jatkossa projekti laajenee
+siten, että käyttäjä pystyy syöttämään ruudukon pinta-alan sekä käytettävän algoritmin.
+
+Tämän myötä ohjelma pyöräyttää luodusta ruudukosta labyrintin halutulla algoritmilla ja kertoo siihen kuluneen ajan.
