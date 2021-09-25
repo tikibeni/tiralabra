@@ -29,7 +29,7 @@ Ohjelman ajaminen projektijuuren kautta komennolla:
 ./gradlew run
 ```
 
-Testien ajaminen projektijuuren kautta komennolla:
+JUnit-testien ajaminen projektijuuren kautta komennolla:
 ```
 ./gradlew test
 ```

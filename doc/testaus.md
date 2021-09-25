@@ -2,7 +2,7 @@
 
 ## Testien ajaminen
 
-Yksikkötestit juuresta komennolla `./gradlew test`.
+Yksikkötestit (JUnit) juuresta komennolla `./gradlew test`.
 
 Tyylitarkastus juuresta komennolla `./gradlew detekt`.
 
@@ -18,4 +18,3 @@ Lisäksi Detektin ajaminen luo raportin kohteeseen `build/reports/detekt/detekt.
 
 Toistaiseksi konkreettisella tasolla ei mitään merkittävää (pl. ruudukon luonti) ensimmäisen algoritmin ollessa
 keskeneräinen.
-

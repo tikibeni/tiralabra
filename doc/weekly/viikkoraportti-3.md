@@ -3,8 +3,9 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Tällä viikolla olen rakentanut Wilsonin algoritmia perustuen lähteisiin ja yrittänyt ymmärtää sekä opetella, miten
-algoritmin tulisi toimia. Ohessa alustin projektille Jacocon, josta voi seurata testikattavuutta. Lisäksi alustin 
-projektille Kotlinin oman tyylitarkastelijan, Detektin. Lisätietoa Jacocosta ja Detektistä [testausdokumentissa](../testaus.md)
+algoritmin tulisi toimia. Ohessa alustin projektille Jacocon, josta voi seurata JUnit-testien testikattavuutta. Lisäksi 
+alustin projektille Kotlinin oman tyylitarkastelijan, Detektin. Lisätietoa Jacocosta ja Detektistä 
+[testausdokumentissa](../testaus.md)
 
 ## Miten ohjelma on edistynyt?
 

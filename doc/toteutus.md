@@ -25,5 +25,3 @@ TBA
 ## Lähteet
 
 Lähteitä on luettavissa [määrittelydokumentista](./maarittely.md)
-
-
