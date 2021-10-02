@@ -24,4 +24,4 @@ muodostamiseen kuluneen ajan millisekunneissa. Tulos näytetään lopuksi käytt
 
 Viimeisin raportti näyttää tältä:
 
-![kattavuus](./img/kattavuus-250921.png "Testikattavuus 25.9.2021")
+![kattavuus](./img/kattavuus-021021.png "Testikattavuus 25.9.2021")

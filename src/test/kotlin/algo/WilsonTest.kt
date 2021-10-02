@@ -17,12 +17,11 @@ internal class WilsonTest {
     }
 
     @Test
-    fun alustaKaydyt() {
-        // Katso onko tämä todella tarpeellinen.
-    }
-
-    @Test
-    fun muunnaLabyrintiksi() {
-        // TODO kun algoritmi toimii odotetulla tavalla
+    fun kaveleeLoppuun() {
+        val wilson = Wilson()
+        val ruudukko = wilson.rakennaRuudukko(3, 3)
+        wilson.alustaKaydyt(ruudukko)
+        val laby = wilson.muunnaLabyrintiksi(ruudukko)
+        assertNotNull(laby)
     }
 }
