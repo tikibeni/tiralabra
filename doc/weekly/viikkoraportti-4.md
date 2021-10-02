@@ -4,11 +4,11 @@
 
 Tällä viikolla projektin edistyminen on jäänyt valitettavan vähäiselle johtuen pääasiassa muutosta toiselle
 paikkakunnalle. Olen kuitenkin saanut paranneltua Wilsonin algoritmia, ja tuntuu siltä että se on aivan pian
-valmis.
+valmis. Ohessa loin Wilsonin algoritmille läpimenoa varmistavan testin.
 
 ## Miten ohjelma on edistynyt?
 
-Wilsonin algoritmi on edennyt toimivampaan suuntaan.
+Wilsonin algoritmi on edennyt toimivampaan suuntaan. Testikattavuus on parantunut.
 
 ## Mitä opin tällä viikolla / tänään?
 
