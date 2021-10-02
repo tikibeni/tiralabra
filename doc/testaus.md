@@ -14,10 +14,11 @@ Komento luo Jacoco-raportin kohteeseen `build/jacocoHtml/index.html`
 
 Lisäksi Detektin ajaminen luo raportin kohteeseen `build/reports/detekt/detekt.html`
 
-## Mitä on testattu, miten ja millaisilla syötteillä
+## Mitä, miten ja millaisilla syötteillä on testattu
 
 Toistaiseksi konkreettisella tasolla ei mitään merkittävää (pl. ruudukon luonti) ensimmäisen algoritmin ollessa
-keskeneräinen.
+keskeneräinen. Tehokkuutta testataan siten, että labyrintin muodostus on ympäröity ajastimella, joka mittaa
+muodostamiseen kuluneen ajan millisekunneissa. Tulos näytetään lopuksi käyttäjälle parametrien kera.
 
 ## Jacoco-raportti
 

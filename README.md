@@ -19,7 +19,7 @@ Aloittamani harjoitustyö kurssilla **TKT20010 (Aineopintojen harjoitustyö: Tie
 * [Viikko 1](doc/weekly/viikkoraportti-1.md)
 * [Viikko 2](doc/weekly/viikkoraportti-2.md)
 * [Viikko 3](doc/weekly/viikkoraportti-3.md)
-* Viikko 4
+* [Viikko 4](doc/weekly/viikkoraportti-4.md)
 * Viikko 5
 * Viikko 6
 

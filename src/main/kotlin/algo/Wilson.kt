@@ -59,32 +59,34 @@ class Wilson {
     /**
      * Reitin tulostamista varten
      */
-    private fun debugReitti(reitti: Array<Triple<Int, Int, Int>>) {
+    private fun debugReitti(reitti: Triple<Int, Int, Int>) {
         println("Reitin debuggaus::")
-        for (vaihe in reitti) {
-            println("Koordinaatit y: ${vaihe.second}, x: ${vaihe.first}, suunta: ${vaihe.third}")
-        }
+        println("Koordinaatit rivi: ${reitti.first}, sarake: ${reitti.second}, suunta: ${reitti.third}")
     }
 
     /**
      * Wilsonin algoritmin satunnaiskävely
      */
     private fun randomKavely(ruudukko: Array<Array<Ruutu>>): Array<Triple<Int, Int, Int>> {
-        while (true) {
+        testi@ while (true) {
+            // X-akselin koordinaatti (sarake)
             var cx = Random.nextInt(0, ruudukko[0].size - 1)
+            // Y-akselin koordinaatti (rivi)
             var cy = Random.nextInt(0, ruudukko.size - 1)
 
-            // println("Satunnaisalkukoordinaatit: \n X: $cx \n Y: $cy")
+            println("Satunnaisalkukoordinaatit kävelylle: \n X: $cx \n Y: $cy\nSatunnaisarvo: ${ruudukko[cy][cx].arvo}")
 
             // Jos ruudukon arvo on jo labyrintissa, haetaan uusi koordinaatti
-            if (ruudukko[cy][cx].arvo != 0) continue
+            if (ruudukko[cy][cx].arvo != 0) continue@testi
 
+            // Otetaan reitin alkukoordinaatit talteen
             val alkuX = cx
             val alkuY = cy
 
             var randomKavely: Boolean
 
             do {
+                // Oletetaan, että tällä kierroksella osutaan maaliin
                 randomKavely = false
                 suunnat.shuffle()
                 for (suunta in suunnat) {
@@ -101,7 +103,6 @@ class Wilson {
 
                         // Jos naapuriruudussa on jo käyty, niin poistutaan kävelystä
                         if (ruudukko[ny][nx].arvo != 0) {
-                            // println("Poistutaan lambdasta.")
                             break
                         } else {
                             // Muussa tapauksessa jatketaan kävelyä (kunnes törmätään jo käytyyn ruutuun)
@@ -122,23 +123,18 @@ class Wilson {
             var x = alkuX
             var y = alkuY
 
-            // Alkukoordinaatista menosuunta
-            var dir = kaydyt[y][x].suunta
-
-            // Lisätään reittiin koordinaatti ja sen suunta
-            reitti += Triple(x, y, dir!!)
-            println("testi ${reitti[0].first}")
-            println("Ekan arvon debuggi.")
-            debugReitti(reitti)
-
             // Navigoidaan aina reitin seuraavaan ruutuun apulistojen avulla
-            while (dir !== null) {
-                x += dx[dir]!!
-                y += dy[dir]!!
-                reitti += Triple(x, y, dir)
-                println("Luupin debuggi.")
-                debugReitti(reitti)
-                dir = kaydyt[y][x].suunta
+            while (true) {
+                if (kaydyt[y][x].suunta !== null) {
+                    val dir: Int? = kaydyt[y][x].suunta
+                    if (dir !== null) {
+                        reitti += Triple(y, x, dir)
+                        x += dx[dir]!!
+                        y += dy[dir]!!
+                    }
+                } else {
+                    break
+                }
             }
 
             // Lopulta palautetaan reitti
@@ -154,28 +150,32 @@ class Wilson {
         val satunnaisX = Random.nextInt(0, ruudukko.size - 1)
         val satunnaisY = Random.nextInt(0, ruudukko[0].size - 1)
 
-        // Asetetaan loppupisteen arvoksi 1, joka indikoi "käytyä" ruutua
-        ruudukko[satunnaisX][satunnaisY].arvo = 1
-        // debugRuudukko(ruudukko)
+        // Asetetaan loppupisteen arvoksi 2, joka indikoi maaliruutua
+        println("Maaliruuduksi on valittu koordinaatit: rivi: ${satunnaisY+1}, sarake: ${satunnaisX+1}")
+        ruudukko[satunnaisY][satunnaisX].arvo = 2
+        debugRuudukko(ruudukko)
 
         var ruutujaJaljella = ruudukko.size * ruudukko[0].size - 1
         while (ruutujaJaljella > 0) {
             for (it in randomKavely(ruudukko)) {
-                // Suunnan osoittama x-koordinaatti
-                val nx = it.first + dx[it.third]!!
-                // Suunnan osoittama y-koordinaatti
-                val ny = it.second + dy[it.third]!!
+                debugReitti(it)
+                // Suunnan osoittama y-koordinaatti (rivi)
+                val ny = it.first + dy[it.third]!!
+                // Suunnan osoittama x-koordinaatti (sarake)
+                val nx = it.second + dx[it.third]!!
 
-                println("Suunnan osoittama x: $nx, y: $ny")
-
-                ruudukko[it.second][it.first].suunta = it.third
-                // ruudukko[ny][nx].suunta = opp[it.third]
+                ruudukko[it.first][it.second].suunta = it.third
+                ruudukko[it.first][it.second].arvo = 1
+                ruudukko[ny][nx].suunta = vastakkainen[it.third]
                 ruudukko[ny][nx].arvo = 1
                 ruutujaJaljella -= 1
+                println("Ruutuja jäljellä: $ruutujaJaljella")
+
+                if (ruutujaJaljella == 0) {
+                    break
+                }
 
                 debugRuudukko(ruudukko)
-
-                println("Käsiteltiin yksi kierros kait. $ruutujaJaljella")
             }
         }
 

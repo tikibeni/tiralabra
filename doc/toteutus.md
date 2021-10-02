@@ -17,10 +17,11 @@ arvosta ja suunnasta Wilsonin algoritmia tukeakseen.
 
 Tämä osio tarkentuu molempien algoritmien implementoinnin myötä. Tällä hetkellä arviota Wilsonin algoritmin tehosta voi
 sanoa sen verran, että pahimmassa tapauksessa Wilsonin algoritmi voi teoriassa jatkaa ikuisesti tietyillä parametreilla.
+Kuten [testausdokumentista](./testaus.md) ilmenee, suorituskykyä testataan ajastimella.
 
 ## Puutteet ja parannusehdotukset
 
-TBA
+TBA projektin lopussa.
 
 ## Lähteet
 

@@ -12,8 +12,9 @@ fun main() {
         4. Algoritmi muodostaa ruudukosta käytävistön. Näytetään lopputulos käyttäjälle ajan kera.
      */
     val w = Wilson()
-    val ruudukko = w.rakennaRuudukko(3, 3)
-    w.debugRuudukko(ruudukko)
+    val leveys = 4
+    val korkeus = 4
+    val ruudukko = w.rakennaRuudukko(leveys, korkeus)
     w.alustaKaydyt(ruudukko)
     println("Alustettu ruudukko leveydellä 3, korkeudella 3")
     var laby: Array<Array<Ruutu>>
@@ -22,5 +23,5 @@ fun main() {
     }
     println("Lopullinen ruudukko Wilsonin algoritmilla: ")
     w.debugRuudukko(laby)
-    println("Rakentamisessa kesti $kesto ns")
+    println("Rakentamisessa kesti $kesto ms. \nRuudukon koko $leveys * $korkeus")
 }

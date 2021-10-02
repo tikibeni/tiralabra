@@ -21,7 +21,7 @@ Gradle. Ohessa hallitsen Javan käytön ja tunnen pintapuolin Pythonin.
 
 ### Tavoite
 
-#### Viikon 1 rajaus
+#### Viikon 1 rajaus (outdated, kts. Viikon 2 rajaus)
 
 Projektina toimii luolastogeneraattorin rakentaminen, joka tulee koostumaan lähtökohtaisesti kolmesta osasta:
 
