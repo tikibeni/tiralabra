@@ -1,10 +1,10 @@
 package luolastogeneraattori.util
 
 /**
- * Ruutuun voidaan tallentaa suunta ja näyttöarvo.
+ * Ruutuun voidaan tallentaa [suunta] ja [arvo].
  */
 class Ruutu (
-    var suunta: Int?,
+    var suunta: String?,
     var arvo: Int = 0
 )
 
