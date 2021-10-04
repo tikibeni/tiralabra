@@ -39,7 +39,6 @@ Lisää testauksesta [täältä](testaus.md)
 
 ## Ohjelman käyttö
 
-Toistaiseksi ohjelman käyttö rajautuu edellämainittuihin komentoihin. Jatkossa projekti laajenee
-siten, että käyttäjä pystyy syöttämään ruudukon pinta-alan sekä käytettävän algoritmin.
-
-Tämän myötä ohjelma pyöräyttää luodusta ruudukosta labyrintin halutulla algoritmilla ja kertoo siihen kuluneen ajan.
+Käynnistyksen myötä ohjelma kysyy käyttäjältä ruudukon mittoja, jonka pohjalta ohjelma alustaa ruudukon labyrintille.
+Tämän myötä ohjelma pyöräyttää luodusta ruudukosta labyrintin halutulla algoritmilla (toistaiseksi vain Wilson) ja 
+kertoo siihen kuluneen ajan. Toteutettuani molemmat algoritmit ohjelma tulee kysymään kumpaa algoritmia käytetään.
