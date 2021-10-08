@@ -2,6 +2,22 @@
 
 Aloittamani harjoitustyö kurssilla **TKT20010 (Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit)** lukuvuoden 2021-2022 1. periodilla.
 
+## Lataaminen ja käyttö (tl;dr)
+
+1. Kloonaa
+2. Asenna
+3. Ajaminen ja testaus
+
+```shell
+~$ git clone https://github.com/tikibeni/luolastogen.git
+~$ cd luolastogen
+~/luolastogen$ ./gradlew install
+~/luolastogen$ ./gradlew run
+~/luolastogen$ ./gradlew test
+```
+
+Tarkemmin [täällä](./doc/ohje.md).
+
 ## Dokumentaatiota
 
 [Linkki](./doc/maarittely.md) määrittelydokumenttiin.

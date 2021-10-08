@@ -2,16 +2,18 @@
 
 ## Rakenne
 
-Ohjelmaa ajetaan [Main.kt](../src/main/kotlin/Main.kt)-luokasta käsin. Toistaiseksi ajetaan vain (keskeneräisen) Wilsonin
-algoritmin mukainen ajo ennaltamääritellyillä pinta-alamuuttujilla. Tavoitteena on rakentaa Main-luokasta käytettävämpi
-siten, että ruudukon ala sekä käytettävä algoritmi ovat käyttäjän päätettävissä.
+Ohjelmaa ajetaan [Main.kt](../src/main/kotlin/Main.kt)-luokasta käsin. Toistaiseksi ajetaan vain Wilsonin algoritmin 
+mukainen ajo käyttäjän syöttämillä pinta-alamuuttujilla. Tavoitteena on rakentaa Main-luokasta käytettävämpi siten, että 
+Primin algon valmistuttua käyttäjä pystyy itse päättämään pinta-alan lisäksi käytettävän algon. Algojen valmistuttua
+rakennan ohjelmalle [TornadoFX](https://tornadofx.io/) hyödyntävän GUI:n, josta algoritmien toimintaa voi seurata.
 
-Itse algoritmit sijaitsevat [algo](../src/main/kotlin/algo)-kansiossa. Tällä hetkellä täältä löytyy keskeneräinen
-Wilsonin algoritmi ja alustamaton random-Prim.
+Itse algoritmit sijaitsevat [algo](../src/main/kotlin/algo)-kansiossa. Tällä hetkellä täältä löytyy Wilsonin algoritmi 
+ja alustamaton random-Prim.
 
 Labyrintin muodostuksessa hyödynnetään [util](../src/main/kotlin/util)-kansion mukaisia apuluokkia. Tällä hetkellä on
 implementoitu vain [Ruutu](../src/main/kotlin/util/Ruutu.kt)-luokka, joka pitää kirjaa yksittäisen ruudukon ruudun
-arvosta ja suunnasta Wilsonin algoritmia tukeakseen.
+arvosta ja suunnasta. Lisäksi `util`-kansiossa sijaitsee [apufunktiot](../src/main/kotlin/util/apufunktiot.kt)-luokka,
+joka sisältää ohjelman uudelleenkäytettäviä apufunktioita.
 
 ## Suorituskyky- ja O-analyysivertailu
 
