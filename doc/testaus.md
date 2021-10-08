@@ -2,13 +2,20 @@
 
 ## Testien ajaminen
 
-Yksikkötestit (JUnit) juuresta komennolla `./gradlew test`.
+Yksikkötestit (JUnit) juuresta komennolla 
+```shell
+~$ cd luolastogen
+~/luolastogen$ ./gradlew test
+```
 
-Tyylitarkastus juuresta komennolla `./gradlew detekt`.
+Tyylitarkastus juuresta komennolla 
 
+```shell
+~/luolastogen$ ./gradlew detekt
+```
 ## Yksikkötestauksen kattavuus
 
-Viimeisimmän tilanteen testikattavuudesta saa generoitua komennolla `./gradlew test` juurihakemistossa.
+Viimeisimmän tilanteen testikattavuudesta saa generoitua yksikkötestikomennolla.
 
 Komento luo Jacoco-raportin kohteeseen `build/jacocoHtml/index.html`
 

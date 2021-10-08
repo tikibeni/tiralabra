@@ -4,34 +4,42 @@
 Komentorivillä haluamassasi kohteessa jollakin seuraavista menetelmistä:
 
 SSH: 
-```
-git clone git@github.com:tikibeni/luolastogen.git
+```shell
+~$ git clone git@github.com:tikibeni/luolastogen.git
 ```
 
 HTTPS:
-```
-git clone https://github.com/tikibeni/luolastogen.git
+```shell
+~$ git clone https://github.com/tikibeni/luolastogen.git
 ```
 
 GitHub CLI:
-```
+```shell
 gh repo clone tikibeni/luolastogen
 ```
 
 ## Ohjelman asennus
 
-Projektin asennus projektijuuren kautta komennolla: `./gradlew install`
+Projektin asennus projektijuuren kautta: 
+
+```shell
+~$ cd luolastogen
+~/luolastogen$ ./gradlew install
+```
+
 
 ## Ohjelman ajaminen ja testit
 
-Ohjelman ajaminen projektijuuren kautta komennolla: 
-```
-./gradlew run
+Ohjelman ajaminen projektijuuren kautta: 
+
+```shell
+~/luolastogen$ ./gradlew run
 ```
 
-JUnit-testien ajaminen projektijuuren kautta komennolla:
-```
-./gradlew test
+JUnit-testien ajaminen projektijuuren kautta:
+
+```shell
+~/luolastogen$ ./gradlew test
 ```
 
 Lisää testauksesta [täältä](testaus.md)
