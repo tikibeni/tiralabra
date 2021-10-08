@@ -1,6 +1,6 @@
 # Luolastogeneraattori
 
-Aloittamani harjoitustyö kurssilla **TKT20010 (Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit)** lukuvuoden 2021-2022 1. periodilla.
+Aloittamani harjoitustyö kurssilla **[TKT20010](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118025627-2021-08-01) (Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit)** lukuvuoden 2021-2022 1. periodilla.
 
 ## Lataaminen ja käyttö (tl;dr)
 
@@ -12,7 +12,7 @@ Aloittamani harjoitustyö kurssilla **TKT20010 (Aineopintojen harjoitustyö: Tie
 ~$ git clone https://github.com/tikibeni/luolastogen.git
 ~$ cd luolastogen
 ~/luolastogen$ ./gradlew install
-~/luolastogen$ ./gradlew run
+~/luolastogen$ ./gradlew run --console=plain
 ~/luolastogen$ ./gradlew test
 ```
 

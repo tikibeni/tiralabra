@@ -32,15 +32,21 @@ Projektin asennus projektijuuren kautta:
 
 Ohjelman ajaminen projektijuuren kautta: 
 
+- Konsoliasetukset, jotta tulosteet näkyvät selkeämpänä
+
 ```shell
-~/luolastogen$ ./gradlew run
+~/luolastogen$ ./gradlew run --console=plain
 ```
+
+Vaihtoehtoisesti projektin voi ajaa IDE:llä _(esim. Intellij IDEA)_ suorittamalla [Main.kt](../src/main/kotlin/Main.kt).
 
 JUnit-testien ajaminen projektijuuren kautta:
 
 ```shell
 ~/luolastogen$ ./gradlew test
 ```
+
+Vaihtoehtoisesti testit voi ajaa suorittamalla kaikki testit kansiosta [test](../src/test).
 
 Lisää testauksesta [täältä](testaus.md)
 
