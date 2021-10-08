@@ -1,5 +1,7 @@
 package luolastogeneraattori.algo
 
-class RanPrim() {
+import luolastogeneraattori.util.Ruutu
 
+class RanPrim() {
+    private var kaydyt = arrayOf<Array<Ruutu>>()
 }
