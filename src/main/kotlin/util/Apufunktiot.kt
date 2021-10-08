@@ -1,7 +1,5 @@
 package luolastogeneraattori.util
 
-import java.lang.NumberFormatException
-
 /**
  * Funktio 2D-ruudukon rakentamiseksi, jossa lopulta ilmenee labyrinttiin lisätyt ruudut
  */
@@ -75,7 +73,7 @@ fun tarkistaLukuSyote(nimi: String, arvovali: IntRange): Int {
             } else {
                 println("Syötetty luku ei kuulu arvoväliin $arvovali")
             }
-        } catch (e: NumberFormatException) {
+        } catch (e: Exception) {
             println("Arvon $nimi tulee olla kokonaisluku")
         }
     }

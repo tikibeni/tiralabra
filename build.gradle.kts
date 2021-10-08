@@ -1,6 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import io.gitlab.arturbosch.detekt.Detekt
 
+
+// Sovelluksen tarvitsemat lisäosat
 plugins {
     kotlin("jvm") version "1.5.30"
     id("io.gitlab.arturbosch.detekt").version("1.18.0")
@@ -8,16 +10,15 @@ plugins {
     application
 }
 
+
+// Sovelluksen pakolliset lisätietomäärittelyt
 group = "me.bblinnik"
 version = "1.0-SNAPSHOT"
 
-// Plugin-repositorio
+
+// Repositorio, josta lisäosat haetaan
 repositories {
     mavenCentral()
-}
-
-application {
-    mainClass.set("luolastogeneraattori.MainKt")
 }
 
 // Projektin riippuvuudet
@@ -27,9 +28,9 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-jacoco {
-    toolVersion = "0.8.7"
-    applyTo(tasks.run.get())
+// Applikaatioasetukset
+application {
+    mainClass.set("luolastogeneraattori.MainKt")
 }
 
 // Detekt-asetukset
@@ -48,21 +49,35 @@ detekt {
     }
 }
 
+// Jacoco-asetukset
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+
+// Build-asetukset (./gradlew build)
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "11"
 }
 
+// Detektin käännösajan asetukset (./gradlew detekt)
 tasks.withType<Detekt>().configureEach {
     jvmTarget = "11"
 }
 
-// Testeihin käytetään JUnitia, jonka pohjalta luodaan raportti
+// Ajoasetukset (./gradlew run)
+tasks.getByName("run", JavaExec::class) {
+    // Jotta ohjelman ajaminen komentoriviltä onnistuu syötteillä
+    standardInput = System.`in`
+}
+
+// Testiasetukset (./gradlew test) - käytetään JUnit, josta luodaan raportti
 tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
 }
 
-// Jacoco-raportin määrittely
+// Jacoco-raportin määrittely (yhdistetty testiajoon)
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
     // Muodostetaan toistaiseksi vain html-muotoinen raportti
