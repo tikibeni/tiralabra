@@ -73,7 +73,7 @@ fun tarkistaLukuSyote(nimi: String, arvovali: IntRange): Int {
             } else {
                 println("Syötetty luku ei kuulu arvoväliin $arvovali")
             }
-        } catch (e: Exception) {
+        } catch (e: NumberFormatException) {
             println("Arvon $nimi tulee olla kokonaisluku")
         }
     }
