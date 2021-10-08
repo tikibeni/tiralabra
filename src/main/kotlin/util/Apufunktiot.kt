@@ -9,9 +9,7 @@ fun rakennaRuudukko(leveys: Int, korkeus: Int): Array<Array<Ruutu>> {
     for (n in 1..korkeus) {
         var rivi = arrayOf<Ruutu>()
         // Rivissä ruutuja (leveys)
-        for (j in 1..leveys) {
-            rivi += Ruutu(null, 0)
-        }
+        for (j in 1..leveys) { rivi += Ruutu(null, 0) }
         ruudukko += rivi
     }
 
@@ -43,9 +41,7 @@ fun alustaKaydyt(ruudukko: Array<Array<Ruutu>>): Array<Array<Ruutu>> {
  */
 fun debugRuudukko(ruudukko: Array<Array<Ruutu>>) {
     ruudukko.forEach { rivi ->
-        rivi.forEach { arvo ->
-            print("${arvo.arvo} ")
-        }
+        rivi.forEach { arvo -> print("${arvo.arvo} ") }
         println()
     }
 }
@@ -68,13 +64,8 @@ fun tarkistaLukuSyote(nimi: String, arvovali: IntRange): Int {
         val syote = readLine()
         try {
             haluttuSyote = Integer.valueOf(syote)
-            if (haluttuSyote in arvovali) {
-                return haluttuSyote
-            } else {
-                println("Syötetty luku ei kuulu arvoväliin $arvovali")
-            }
-        } catch (e: NumberFormatException) {
-            println("Arvon $nimi tulee olla kokonaisluku")
-        }
+            if (haluttuSyote in arvovali) return haluttuSyote
+            println("Syötetty luku ei kuulu arvoväliin $arvovali\n")
+        } catch (e: NumberFormatException) { println("Arvon $nimi tulee olla kokonaisluku") }
     }
 }

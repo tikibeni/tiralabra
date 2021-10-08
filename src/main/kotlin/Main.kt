@@ -1,8 +1,8 @@
 package luolastogeneraattori
 
-import luolastogeneraattori.algo.Wilson
-import luolastogeneraattori.util.*
 import kotlin.system.measureTimeMillis
+import luolastogeneraattori.util.*
+import luolastogeneraattori.algo.Wilson
 
 fun main() {
     /* Ohjelmarunkoa:

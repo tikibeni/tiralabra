@@ -10,6 +10,28 @@ class Wilson {
     private var deltaY = mapOf("ylos" to -1, "alas" to 1, "oikea" to 0, "vasen" to 0)
 
     /**
+     * Muodostetaan kuljetusta reitistä monikkomuotoinen taulukko
+     */
+    private fun rakennaReittiMonikko(alkuX: Int, alkuY: Int): Array<Triple<Int, Int, String>> {
+        // Alustetaan reittimonikkolista alkaen alkukoordinaatista
+        var reitti = arrayOf<Triple<Int, Int, String>>()
+        var x = alkuX
+        var y = alkuY
+
+        // Navigoidaan aina reitin seuraavaan ruutuun apulistojen avulla
+        while (true) {
+            val suunta = kaydyt[y][x].suunta
+            if (suunta !== null) {
+                reitti += Triple(y, x, suunta)
+                y += deltaY[suunta]!!
+                x += deltaX[suunta]!!
+            } else break
+        }
+
+        return reitti
+    }
+
+    /**
      * Wilsonin algoritmin satunnaiskävely
      */
     private fun randomKavely(ruudukko: Array<Array<Ruutu>>): Array<Triple<Int, Int, String>> {
@@ -19,14 +41,8 @@ class Wilson {
             // X-akselin koordinaatti (sarake)
             var cx = (ruudukko[0].indices).random()
 
-
-            println("Kävely alkaa pisteestä: \n rivi: ${cy+1} \n sarake: ${cx+1}")
-
             // Jos ruudukon arvo on jo labyrintissa, haetaan uusi koordinaatti
-            if (ruudukko[cy][cx].arvo != 0) {
-                println("Osuttiin suoraan reittiin - haetaan uusi alkukoordinaatti.")
-                continue
-            }
+            if (ruudukko[cy][cx].arvo != 0) continue
 
             // Otetaan reitin alkukoordinaatit talteen
             val alkuY = cy
@@ -34,6 +50,7 @@ class Wilson {
 
             var randomKavely: Boolean
 
+            // Aloitetaan kävely
             do {
                 // Oletetaan, että tällä kierroksella osutaan maaliin
                 randomKavely = false
@@ -58,34 +75,14 @@ class Wilson {
                             cx = nx
                             randomKavely = true
                         }
+
                         break
-                    } else {
-                        println("Osuttiin yli ruudukkorajojen. Haetaan uusi koordinaatti")
-                    }
+                    } else println("Osuttiin yli ruudukkorajojen. Haetaan uusi koordinaatti")
                 }
             } while (randomKavely)
 
-            println("Osuttiin reitillä olevaan ruutuun / maaliruutuun")
-
-            // Alustetaan reittimonikkolista alkaen alkukoordinaatista
-            var reitti = arrayOf<Triple<Int, Int, String>>()
-            var x = alkuX
-            var y = alkuY
-
-            // Navigoidaan aina reitin seuraavaan ruutuun apulistojen avulla
-            while (true) {
-                val suunta = kaydyt[y][x].suunta
-                if (suunta !== null) {
-                    reitti += Triple(y, x, suunta)
-                    y += deltaY[suunta]!!
-                    x += deltaX[suunta]!!
-                } else {
-                    break
-                }
-            }
-
-            // Lopulta palautetaan reitti
-            return reitti
+            // Lopulta rakennetaan ja palautetaan reittimonikko
+            return rakennaReittiMonikko(alkuX, alkuY)
         }
     }
 
@@ -119,12 +116,8 @@ class Wilson {
                     ruudukko[it.first][it.second].arvo = 1
                     ruudukko[ny][nx].suunta = vastakkainen[it.third]
                     ruutujaJaljella -= 1
-                    println("Ruutuja jäljellä: $ruutujaJaljella")
 
-                    if (ruutujaJaljella == 0) {
-                        break
-                    }
-
+                    if (ruutujaJaljella == 0) break
                     debugRuudukko(ruudukko)
                 }
             }
