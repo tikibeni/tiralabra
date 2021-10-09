@@ -2,7 +2,7 @@ package luolastogeneraattori
 
 import kotlin.system.measureTimeMillis
 import luolastogeneraattori.util.*
-import luolastogeneraattori.algo.Wilson
+import luolastogeneraattori.algo.*
 
 fun main() {
     /* Ohjelmarunkoa:
@@ -12,6 +12,7 @@ fun main() {
         4. Algoritmi muodostaa ruudukosta käytävistön. Näytetään lopputulos käyttäjälle ajan kera.
      */
     val w = Wilson()
+    val p = RanPrim()
 
     val leveys = tarkistaLukuSyote("leveys", 3..10)
     val korkeus = tarkistaLukuSyote("korkeus", 3..10)
@@ -21,8 +22,10 @@ fun main() {
     debugRuudukko(ruudukko)
 
     var laby: Array<Array<Ruutu>>
+
     val kesto = measureTimeMillis {
         laby = w.muunnaLabyrintiksi(ruudukko)
+        // laby = p.muunnaLabyrintiksi(ruudukko)
     }
 
     println("Lopullinen ruudukko Wilsonin algoritmilla: ")
