@@ -32,10 +32,8 @@ Projektin asennus projektijuuren kautta:
 
 Ohjelman ajaminen projektijuuren kautta: 
 
-- Konsoliasetukset, jotta tulosteet näkyvät selkeämpänä
-
 ```shell
-~/luolastogen$ ./gradlew run --console=plain
+~/luolastogen$ ./gradlew run
 ```
 
 Vaihtoehtoisesti projektin voi ajaa IDE:llä _(esim. Intellij IDEA)_ suorittamalla [Main.kt](../src/main/kotlin/Main.kt).

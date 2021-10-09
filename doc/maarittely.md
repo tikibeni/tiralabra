@@ -85,3 +85,5 @@ https://www.freecodecamp.org/news/how-to-make-your-own-procedural-dungeon-map-ge
 )
 
 [Maze Generation: Wilson's algorithm](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm)
+
+[Maze Generation: Prim's Algorithm](https://weblog.jamisbuck.org/2011/1/10/maze-generation-prim-s-algorithm)

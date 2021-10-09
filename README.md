@@ -12,7 +12,7 @@ Aloittamani harjoitustyö kurssilla **[TKT20010](https://studies.helsinki.fi/opi
 ~$ git clone https://github.com/tikibeni/luolastogen.git
 ~$ cd luolastogen
 ~/luolastogen$ ./gradlew install
-~/luolastogen$ ./gradlew run --console=plain
+~/luolastogen$ ./gradlew run
 ~/luolastogen$ ./gradlew test
 ```
 
