@@ -51,6 +51,8 @@ Lisää testauksesta [täältä](testaus.md)
 
 ## Ohjelman käyttö
 
+### Huom! Toistaiseksi labyrintit tulostetaan vain lukuina, koska en ole vielä rakentanut piirtometodia
+
 Tällä hetkellä ohjelman UI:na toimii tekstikäyttöliittymä. Tällä hetkellä labyrintti näkyy siispä vielä lukuarvoina 0,
 1 ja 2, joista luvun 0 ei tulisi ilmaantua lopputuloksessa, mikäli labyrintti on rakennettu onnistuneesti.
 Käynnistyksen myötä ohjelma kysyy käyttäjältä ruudukon mittoja, jonka pohjalta ohjelma alustaa ruudukon labyrintille.

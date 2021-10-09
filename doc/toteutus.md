@@ -15,10 +15,6 @@ implementoitu vain [Ruutu](../src/main/kotlin/util/Ruutu.kt)-luokka, joka pitä�
 arvosta ja suunnasta. Lisäksi `util`-kansiossa sijaitsee [apufunktiot](../src/main/kotlin/util/Apufunktiot.kt)-luokka,
 joka sisältää ohjelman uudelleenkäytettäviä apufunktioita.
 
-Wilsonin algoritmi on rakennettu [tätä](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm) 
-lähdettä kun taas RanPrim on rakennettu [tätä](https://weblog.jamisbuck.org/2011/1/10/maze-generation-prim-s-algorithm) 
-lähdettä mukaillen.
-
 ## Suorituskyky- ja O-analyysivertailu
 
 Tämä osio tarkentuu molempien algoritmien implementoinnin myötä. Tällä hetkellä arviota Wilsonin algoritmin tehosta voi
@@ -31,4 +27,8 @@ TBA projektin lopussa.
 
 ## Lähteet
 
-Lähteitä on luettavissa [määrittelydokumentista](./maarittely.md)
+Wilsonin algoritmi on rakennettu [tätä](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm)
+lähdettä kun taas RanPrim on rakennettu [tätä](https://weblog.jamisbuck.org/2011/1/10/maze-generation-prim-s-algorithm)
+lähdettä mukaillen.
+
+Lisää lähteitä on luettavissa [määrittelydokumentista](./maarittely.md)
