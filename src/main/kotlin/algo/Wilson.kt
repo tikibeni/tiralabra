@@ -37,9 +37,9 @@ class Wilson {
     private fun randomKavely(ruudukko: Array<Array<Ruutu>>): Array<Triple<Int, Int, String>> {
         while (true) {
             // Y-akselin koordinaatti (rivi)
-            var cy = (ruudukko.indices).random()
+            var cy = ruudukko.indices.random()
             // X-akselin koordinaatti (sarake)
-            var cx = (ruudukko[0].indices).random()
+            var cx = ruudukko[0].indices.random()
 
             // Jos ruudukon arvo on jo labyrintissa, haetaan uusi koordinaatti
             if (ruudukko[cy][cx].arvo != 0) continue
@@ -94,8 +94,8 @@ class Wilson {
         kaydyt = alustaKaydyt(ruudukko)
 
         // Valitaan loppupisteeksi satunnainen piste
-        val satunnaisX = (ruudukko.indices).random()
-        val satunnaisY = (ruudukko[0].indices).random()
+        val satunnaisX = ruudukko.indices.random()
+        val satunnaisY = ruudukko[0].indices.random()
 
         // Asetetaan loppupisteen arvoksi 2, joka indikoi maaliruutua
         println("Maaliruuduksi on valittu koordinaatit: rivi: ${satunnaisY+1}, sarake: ${satunnaisX+1}")

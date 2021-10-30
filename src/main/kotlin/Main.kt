@@ -5,30 +5,25 @@ import luolastogeneraattori.util.*
 import luolastogeneraattori.algo.*
 
 fun main() {
-    /* Ohjelmarunkoa:
-        1. Pyydä käyttäjältä syötteenä suorakulmion / neliön korkeus ja leveys (voivat olla sama arvo: x²)
-        2. Generoi ruudukkopohja
-        3. Kysy käyttäjältä kumpaa algoritmia käytetään (kun molemmat algot toteutettu)
-        4. Algoritmi muodostaa ruudukosta käytävistön. Näytetään lopputulos käyttäjälle ajan kera.
-     */
+    println("Tervetuloa labyrinttigeneraattoriin!")
     val w = Wilson()
     val p = RanPrim()
-
-    val leveys = tarkistaLukuSyote("leveys", 3..10)
-    val korkeus = tarkistaLukuSyote("korkeus", 3..10)
-
+    val algoLuku = tarkistaLukuSyote("algoritmi", 1..2, "\nKummalla algoritmilla rakennetaan (syötä luku):\n\t1. Wilson\n\t2. Satunnaistettu Prim\n")
+    val leveys = tarkistaLukuSyote("leveys", 3..10, "Syötä ruudukon leveys arvoväliltä 3-10: ")
+    val korkeus = tarkistaLukuSyote("korkeus", 3..10, "Syötä ruudukon korkeus arvoväliltä 3-10: ")
     val ruudukko = rakennaRuudukko(leveys, korkeus)
-    println("Alustettu ruudukko leveydellä $leveys, korkeudella $korkeus")
-    debugRuudukko(ruudukko)
-
     var laby: Array<Array<Ruutu>>
 
-    val kesto = measureTimeMillis {
-        laby = w.muunnaLabyrintiksi(ruudukko)
-        // laby = p.muunnaLabyrintiksi(ruudukko)
+    val kesto = when (algoLuku) {
+        1 -> measureTimeMillis {
+            laby = w.muunnaLabyrintiksi(ruudukko)
+        }
+        else -> measureTimeMillis {
+            laby = p.muunnaLabyrintiksi(ruudukko)
+        }
     }
 
-    println("Lopullinen ruudukko Wilsonin algoritmilla: ")
+    println("Lopullinen ruudukko algoritmilla: ")
     debugRuudukko(laby)
 
     println("Rakentamisessa kesti $kesto ms. \nRuudukon koko $leveys * $korkeus")
