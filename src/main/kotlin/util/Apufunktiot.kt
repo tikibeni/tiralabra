@@ -9,10 +9,11 @@ fun rakennaRuudukko(leveys: Int, korkeus: Int): Array<Array<Ruutu>> {
     for (n in 1..korkeus) {
         var rivi = arrayOf<Ruutu>()
         // Rivissä ruutuja (leveys)
-        for (j in 1..leveys) { rivi += Ruutu(null, 0) }
+        for (j in 1..leveys) { rivi += Ruutu(null, 0, arrayOf()) }
         ruudukko += rivi
     }
 
+    println("Alustettu ruudukko leveydellä $leveys, korkeudella $korkeus")
     return ruudukko
 }
 
@@ -27,7 +28,7 @@ fun alustaKaydyt(ruudukko: Array<Array<Ruutu>>): Array<Array<Ruutu>> {
     for (n in 1..ruudukko.size) {
         var rivi = arrayOf<Ruutu>()
         for (j in 1..ruudukko[0].size) {
-            val r = Ruutu(null, 0)
+            val r = Ruutu(null, 0, arrayOf())
             rivi += r
         }
         kaydyt += rivi
@@ -57,10 +58,10 @@ fun debugReitti(reitti: Triple<Int, Int, String>) {
 /**
  * Lukusyötteen validointia varten
  */
-fun tarkistaLukuSyote(nimi: String, arvovali: IntRange): Int {
+fun tarkistaLukuSyote(nimi: String, arvovali: IntRange, viesti: String): Int {
     var haluttuSyote: Int
     while (true) {
-        print("Syötä ruudukon $nimi arvoväliltä $arvovali: ")
+        print(viesti)
         val syote = readLine()
         try {
             haluttuSyote = Integer.valueOf(syote)
