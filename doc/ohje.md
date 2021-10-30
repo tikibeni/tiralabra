@@ -46,7 +46,7 @@ JUnit-testien ajaminen projektijuuren kautta:
 
 Vaihtoehtoisesti testit voi ajaa suorittamalla kaikki testit kansiosta [test](../src/test).
 
-Lisää testauksesta [täältä](testaus.md)
+Lisää testauksesta [täältä](testaus.md).
 
 
 ## Ohjelman käyttö
@@ -55,6 +55,6 @@ Lisää testauksesta [täältä](testaus.md)
 
 Tällä hetkellä ohjelman UI:na toimii tekstikäyttöliittymä. Tällä hetkellä labyrintti näkyy siispä vielä lukuarvoina 0,
 1 ja 2, joista luvun 0 ei tulisi ilmaantua lopputuloksessa, mikäli labyrintti on rakennettu onnistuneesti.
-Käynnistyksen myötä ohjelma kysyy käyttäjältä ruudukon mittoja, jonka pohjalta ohjelma alustaa ruudukon labyrintille.
-Tämän myötä ohjelma pyöräyttää luodusta ruudukosta labyrintin halutulla algoritmilla (toistaiseksi vain Wilson) ja 
-kertoo siihen kuluneen ajan. Toteutettuani molemmat algoritmit ohjelma tulee kysymään kumpaa algoritmia käytetään.
+Käynnistyksen myötä ohjelma kysyy käyttäjältä käytettävää algoritmia ja ruudukon mittoja, jonka pohjalta ohjelma alustaa
+ruudukon labyrintille. Tämän myötä ohjelma pyöräyttää luodusta ruudukosta labyrintin halutulla algoritmilla ja kertoo 
+siihen kuluneen ajan.

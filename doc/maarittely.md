@@ -52,7 +52,7 @@ Algoritmit:
 ##### Jatkokehitys
 
 Viikon 2 rajauksen myötä ohjelmaa voisi myöhemmin laajentaa ensimmäisen rajauksen kaltaiseksi mikäli aikaa ja intoa
-liikenee joskus tulevaisuudessa.
+liikenee joskus tulevaisuudessa. Enemmän tietoa jatkokehityksestä [täällä](toteutus.md).
 
 ### Tietorakenteet ja algoritmit
 
@@ -66,7 +66,9 @@ Wilsonin algoritmissa on huonona puolena se, ettei se teoriassa tietyissä tilan
 lopputulokseen. Ideaalitilanteessa algoritmi löytäisi suoran reitin alkupisteestä loppupisteeseen, jonka jälkeen
 ideaalisuus toistuisi siten, että satunnaisruudusta löytyisi suora reitti jo rakennettuun reittiin.
 
-Satunnaistetun Primin algoritmin aikavaativuus äärellisessä ruudukossa on O(n²)
+Satunnaistetun Primin algoritmin aikavaativuus äärellisessä ruudukossa on O(n²).
+
+Lisää vaativuuksista [täällä](toteutus.md).
 
 ### Läpikäytyjä lähteitä
 
