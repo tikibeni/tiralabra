@@ -38,24 +38,6 @@ fun alustaKaydyt(ruudukko: Array<Array<Solmu>>): Array<Array<Solmu>> {
 }
 
 /**
- * Annetun ruudukon tulostamista varten
- */
-fun debugRuudukko(ruudukko: Array<Array<Solmu>>) {
-    ruudukko.forEach { rivi ->
-        rivi.forEach { arvo -> print("${arvo.arvo} ") }
-        println()
-    }
-}
-
-/**
- * Reitin tulostamista varten
- */
-fun debugReitti(reitti: Triple<Int, Int, String>) {
-    println("Reitin debuggaus.")
-    println("Koordinaatit rivi: ${reitti.first+1}, sarake: ${reitti.second+1}, suunta: ${reitti.third}")
-}
-
-/**
  * Lukusyötteen validointia varten
  */
 fun tarkistaLukuSyote(nimi: String, arvovali: IntRange, viesti: String): Int {
