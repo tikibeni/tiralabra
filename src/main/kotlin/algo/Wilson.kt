@@ -96,7 +96,7 @@ class Wilson {
         val satunnaisY = ruudukko[0].indices.random()
 
         // Asetetaan loppupisteen arvoksi 2, joka indikoi maalisolmua
-        ruudukko[satunnaisY][satunnaisX].arvo = 2
+        ruudukko[satunnaisX][satunnaisY].arvo = 2
 
         var solmujaJaljella = ruudukko.size * ruudukko[0].size - 1
         while (solmujaJaljella > 0) {

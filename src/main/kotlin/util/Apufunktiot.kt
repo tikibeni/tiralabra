@@ -98,7 +98,7 @@ fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>) {
     var piirtoruutu: Array<Array<String>> = arrayOf()
 
     var vaakaseina: Array<String> = arrayOf()
-    for (i in 0 until labyrintti.size * 2 + 1) vaakaseina += "# "
+    for (i in 0 until labyrintti[0].size * 2 + 1) vaakaseina += "# "
 
     piirtoruutu += vaakaseina
 

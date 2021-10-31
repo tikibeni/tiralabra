@@ -65,7 +65,7 @@ class RanPrim {
         var counter = ruudukko.size * ruudukko[0].size - 1
 
         // Merkitään ruudukkoon aloitussolmu ja lisätään sen naapurit osaksi reunaa
-        merkitse(satunnaisY, satunnaisX, ruudukko)
+        merkitse(satunnaisX, satunnaisY, ruudukko)
 
         // Luupataan niin kauan, kun reunataulukossa on solmuja
         do {
