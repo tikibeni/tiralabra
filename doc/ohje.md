@@ -27,6 +27,16 @@ Projektin asennus projektijuuren kautta:
 ~/luolastogen$ ./gradlew install
 ```
 
+Projektin buildaus projektijuuren kautta:
+
+```shell
+~/luolastogen$ ./gradlew build
+```
+
+Buildaus luo myös suoritettavan `.jar`-tiedoston kohteeseen `build/libs/`. Ajaminen onnistuu komennolla:
+```shell
+~/luolastogen/build/libs$ java -jar tiedostonimi.jar
+```
 
 ## Ohjelman ajaminen ja testit
 
@@ -50,6 +60,16 @@ Vaihtoehtoisesti testit voi ajaa suorittamalla kaikki testit kansiosta [test](..
 
 Lisää testauksesta [täältä](testaus.md).
 
+## Käyttö releasen kautta
+
+Vaihtoehtoisesti voit ladata ja ajaa ohjelmaa `.jar`-tiedoston kautta, joka löytyy viimeisimmästä 
+[releasesta](https://github.com/tikibeni/luolastogen).
+
+Ajaminen komennolla:
+
+```shell
+~$ java -jar tiedostonimi.jar
+```
 
 ## Ohjelman käyttö
 

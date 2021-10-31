@@ -87,3 +87,14 @@ tasks.jacocoTestReport {
         html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
     }
 }
+
+// Buildauksen yhteydessä säännöt .jar-tiedoston muodostamiseen
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "luolastogeneraattori.MainKt"
+    }
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
