@@ -7,20 +7,23 @@ labyrintin pinta-ala.
 
 Itse algoritmit sijaitsevat [algo](../src/main/kotlin/algo)-kansiossa.
 
-Labyrintin muodostuksessa hyödynnetään [util](../src/main/kotlin/util)-kansion mukaisia apuluokkia. Tällä hetkellä on
-implementoitu vain [Ruutu](../src/main/kotlin/util/Ruutu.kt)-luokka, joka pitää kirjaa yksittäisen ruudukon ruudun
-arvosta, suunnasta ja tarvittaessa naapureista. Lisäksi `util`-kansiossa sijaitsee 
+Labyrintin muodostuksessa hyödynnetään [util](../src/main/kotlin/util)-kansion mukaisia apuluokkia. 
+[Solmu](../src/main/kotlin/util/Solmu.kt)-luokka pitää kirjaa yksittäisen verkon solmun arvosta, suunnasta / suunnista 
+ja tarvittaessa naapureista. Lisäksi `util`-kansiossa sijaitsee 
 [apufunktiot](../src/main/kotlin/util/Apufunktiot.kt)-luokka, joka sisältää ohjelman uudelleenkäytettäviä apufunktioita.
 
 ## Suorituskyky- ja O-analyysivertailu
 
-Tämä osio tarkentuu molempien algoritmien implementoinnin myötä. Wilsonin algoritmin tehosta voi todeta, että pahimmassa 
-tapauksessa se voi teoriassa jatkaa ikuisesti tietyillä parametreilla. Kuten [testausdokumentista](./testaus.md) ilmenee, 
-suorituskykyä testataan millisekuntiajastimella.
+Wilsonin algoritmin tehosta voi todeta, että pahimmassa tapauksessa se voi teoriassa jatkaa ikuisesti tietyillä 
+parametreilla. Kuten [testausdokumentista](./testaus.md) ilmenee, suorituskykyä testataan millisekuntiajastimella.
+Testausdokumentti sisältää myös konkreettista suorituskykyvertailua. Wilsonin suorituskyky heikentyy suuremmalla
+otoksella huomattavasti (satunnaiskävelyn takia), kun taas satunnaistetun Primin suorituskyky säilyy `O(n²)` paikkeilla 
+riippumatta koosta.
 
 ## Puutteet ja parannusehdotukset
 
 - [TornadoFX](https://tornadofx.io/) hyödyntävän GUI:n, mistä algoritmien toimintaa voi seurata.
+- Suorituskykyajo algoritmeille, joka ei hyödynnä välimuistia.
 
 ## Lähteet
 
