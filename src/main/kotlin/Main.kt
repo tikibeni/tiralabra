@@ -1,11 +1,13 @@
 package luolastogeneraattori
 
-import kotlin.system.measureTimeMillis
 import luolastogeneraattori.util.*
 import luolastogeneraattori.algo.*
+import kotlin.system.measureTimeMillis
 
 fun main() {
     println("Tervetuloa labyrinttigeneraattoriin!")
+
+    // Alustetaan ja kysytään käyttäjältä tarvittavat arvot
     val w = Wilson()
     val p = RanPrim()
     val algoLuku = tarkistaLukuSyote("algoritmi", 1..2, "\nKummalla algoritmilla rakennetaan (syötä luku):\n\t1. Wilson\n\t2. Satunnaistettu Prim\n")
@@ -14,6 +16,7 @@ fun main() {
     val ruudukko = rakennaRuudukko(leveys, korkeus)
     var laby: Array<Array<Ruutu>>
 
+    // Muodostetaan labyrintti ja mitataan kesto millisekuntiajastimella
     val kesto = when (algoLuku) {
         1 -> measureTimeMillis {
             laby = w.muunnaLabyrintiksi(ruudukko)
@@ -23,8 +26,8 @@ fun main() {
         }
     }
 
-    println("Lopullinen ruudukko algoritmilla: ")
-    debugRuudukko(laby)
+    // Labyrintin tulostus
+    piirraLabyrintti(laby)
 
     println("Rakentamisessa kesti $kesto ms. \nRuudukon koko $leveys * $korkeus")
 }

@@ -7,16 +7,19 @@ class RanPrim {
     private var reuna = arrayOf<Pair<Int, Int>>()
 
     /**
-     * Merkitään annettu ruutu osaksi reunaa
+     * Merkitään annettu ruutu osaksi reunaa.
      */
     private fun lisaaReunaan(y: Int, x: Int, ruudukko: Array<Array<Ruutu>>) {
-        if (x >= 0 && y >= 0 && y < ruudukko.size && x < ruudukko[y].size && ruudukko[y][x].arvo == 0) {
-            reuna += Pair(y, x)
-        }
+        if (x >= 0 &&
+            y >= 0 &&
+            y < ruudukko.size &&
+            x < ruudukko[y].size &&
+            ruudukko[y][x].arvo == 0
+        ) reuna += Pair(y, x)
     }
 
     /**
-     * Merkitään annettu ruutu osaksi ruudukkoa ja käsitellään sen naapurit
+     * Merkitään annettu ruutu osaksi ruudukkoa ja käsitellään sen naapurit.
      */
     private fun merkitse(y: Int, x: Int, ruudukko: Array<Array<Ruutu>>) {
         // Ruutu osaksi labyrinttia.
@@ -25,13 +28,10 @@ class RanPrim {
         lisaaReunaan(y, x + 1, ruudukko)
         lisaaReunaan(y - 1, x, ruudukko)
         lisaaReunaan(y + 1, x, ruudukko)
-
-        println("Ruudukko nyt: ")
-        debugRuudukko(ruudukko)
     }
 
     /**
-     * Lisää annetulle ruudulle naapurit sille osoitettuun taulukkoon
+     * Lisää annetulle ruudulle naapurit sille osoitettuun taulukkoon.
      */
     private fun naapurit(y: Int, x: Int, ruudukko: Array<Array<Ruutu>>) {
         if (x > 0 && ruudukko[y][x - 1].arvo != 0)                    ruudukko[y][x].naapurit += Triple(y, x-1, ruudukko[y][x-1])
@@ -66,7 +66,6 @@ class RanPrim {
 
         // Merkitään ruudukkoon aloitusruutu ja lisätään sen naapurit osaksi reunaa
         merkitse(satunnaisY, satunnaisX, ruudukko)
-        println("Aloitusruutu: $satunnaisY, $satunnaisX")
 
         // Luupataan niin kauan, kun reunataulukossa on ruutuja
         do {
@@ -79,11 +78,7 @@ class RanPrim {
             naapurit(reunaPiste.first, reunaPiste.second, ruudukko)
 
             // Valitaan naapureista sattumalla ruutu
-            println("Reunan koko: ${reuna.size}")
-
             val naapuri = ruudukko[reunaPiste.first][reunaPiste.second].naapurit.random()
-
-            println("Valittiin sattumalta naapuri: ${naapuri.first}, ${naapuri.second}")
 
             // Lasketaan suunta reunaruudusta naapuriruutuun
             val suunt = suunta(reunaPiste.first, reunaPiste.second, naapuri.first, naapuri.second)

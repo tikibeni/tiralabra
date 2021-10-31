@@ -60,11 +60,9 @@ class Wilson {
                     val ny = cy + deltaY[suunta]!!
                     val nx = cx + deltaX[suunta]!!
 
-                    println("Satunnaiskävelyn osoittama ruutu: ${ny+1}, ${nx+1}")
-
                     // Onko naapuriruutu validi (ruudukon sisällä)
                     if (nx >= 0 && ny >= 0 && ny < ruudukko.size && nx < ruudukko[ny].size) {
-                        // Validin naapurin löydeltaYttyä asetetaan se poistumisvektoriksi
+                        // Validin naapurin löydettyä asetetaan se poistumisvektoriksi
                         kaydyt[cy][cx].suunta = suunta
 
                         // Jos naapuriruudussa on jo käyty, niin poistutaan kävelystä.
@@ -77,7 +75,7 @@ class Wilson {
                         }
 
                         break
-                    } else println("Osuttiin yli ruudukkorajojen. Haetaan uusi koordinaatti")
+                    }
                 }
             } while (randomKavely)
 
@@ -98,15 +96,12 @@ class Wilson {
         val satunnaisY = ruudukko[0].indices.random()
 
         // Asetetaan loppupisteen arvoksi 2, joka indikoi maaliruutua
-        println("Maaliruuduksi on valittu koordinaatit: rivi: ${satunnaisY+1}, sarake: ${satunnaisX+1}")
         ruudukko[satunnaisY][satunnaisX].arvo = 2
-        debugRuudukko(ruudukko)
 
         var ruutujaJaljella = ruudukko.size * ruudukko[0].size - 1
         while (ruutujaJaljella > 0) {
             for (it in randomKavely(ruudukko)) {
                 if (ruudukko[it.first][it.second].arvo == 0) {
-                    debugReitti(it)
                     // Suunnan osoittama y-koordinaatti (rivi)
                     val ny = it.first + deltaY[it.third]!!
                     // Suunnan osoittama x-koordinaatti (sarake)
@@ -118,7 +113,6 @@ class Wilson {
                     ruutujaJaljella -= 1
 
                     if (ruutujaJaljella == 0) break
-                    debugRuudukko(ruudukko)
                 }
             }
         }

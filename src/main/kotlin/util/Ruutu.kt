@@ -5,6 +5,7 @@ package luolastogeneraattori.util
  */
 open class Ruutu (
     var suunta: String?,
+    // var suunnat: Array<String> = arrayOf(),
     var arvo: Int = 0,
     var naapurit: Array<Triple<Int, Int, Ruutu>> = arrayOf()
 )
