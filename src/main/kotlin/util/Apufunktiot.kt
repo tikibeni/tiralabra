@@ -74,14 +74,14 @@ fun tarkistaLukuSyote(nimi: String, arvovali: IntRange, viesti: String): Int {
 /**
  * Piirretään labyrintti lasketusta ruudukosta
  */
-fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>) {
+fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>): Array<Array<String>> {
     /*
     1 1 1       # # # # #       # # # # # # #       # # # # # # #
-    1 1 1   ->  # 1 1 1 #  ->   # 1   1   1 #  ->   #   #       #
-    1 1 1       # 1 1 1 #       #           #       #   #   #   #
-                # 1 1 1 #       # 1   1   1 #       #       #   #
-                # # # # #       #           #       # # #   #   #
-                                # 1   1   1 #       #       #   #
+    1 1 1   ->  # 1 1 1 #  ->   # 1   1-> 1 #  ->   #   #       #
+    1 1 1       # 1 1 1 #       # ^   ^   v #       #   #   #   #
+                # 1 1 1 #       # 1 <-1   1 #       #       #   #
+                # # # # #       #     ^   v #       # # #   #   #
+                                # 1-> 1   1 #       #       #   #
                                 # # # # # # #       # # # # # # #
 
         Mietitääs missä tapauksissa pitää rakentaa seiniä:
@@ -120,16 +120,16 @@ fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>) {
 
             // Ensiksi käsitellään rivisuunta (ylös-alas)
             if (riviNro + 1 < labyrintti.size) {
-                if (solmu.suunnat.contains("alas") && labyrintti[riviNro + 1][sarakeNro].suunnat.contains("ylos")) {
-                    alempipiirto += "  "
-                } else alempipiirto += "# "
+                alempipiirto += if (solmu.suunnat.contains("alas") && labyrintti[riviNro + 1][sarakeNro].suunnat.contains("ylos")) {
+                    "  "
+                } else "# "
             }
 
             // Sitten käsitellään sarakesuunta (vasen-oikea)
             if (sarakeNro + 1 < labyrintti[0].size) {
-                if (solmu.suunnat.contains("oikea") && labyrintti[riviNro][sarakeNro + 1].suunnat.contains("vasen")) {
-                    piirtorivi += "  "
-                } else piirtorivi += "# "
+                piirtorivi += if (solmu.suunnat.contains("oikea") && labyrintti[riviNro][sarakeNro + 1].suunnat.contains("vasen")) {
+                    "  "
+                } else "# "
             }
 
             if (riviNro + 1 < labyrintti.size && sarakeNro + 1 < labyrintti[0].size) {
@@ -156,4 +156,6 @@ fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>) {
         }
         println()
     }
+
+    return piirtoruutu
 }
