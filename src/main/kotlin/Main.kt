@@ -10,9 +10,12 @@ fun main() {
     // Alustetaan ja kysytään käyttäjältä tarvittavat arvot
     val w = Wilson()
     val p = RanPrim()
-    val algoLuku = tarkistaLukuSyote("algoritmi", 1..2, "\nKummalla algoritmilla rakennetaan (syötä luku):\n\t1. Wilson\n\t2. Satunnaistettu Prim\n")
-    val leveys = tarkistaLukuSyote("leveys", 3..10, "Syötä solmujen lukumäärä riveillä arvoväliltä 3-10: ")
-    val korkeus = tarkistaLukuSyote("korkeus", 3..10, "Syötä rivien lukumäärä arvoväliltä 3-10: ")
+    val algoLuku = tarkistaLukuSyote("algoritmi", 1..2,
+        "\nKummalla algoritmilla rakennetaan (syötä luku):\n\t1. Wilson\n\t2. Satunnaistettu Prim\n")
+    val leveys = tarkistaLukuSyote("leveys", 3..1000,
+        "Syötä solmujen lukumäärä riveillä arvoväliltä 3-1000: ")
+    val korkeus = tarkistaLukuSyote("korkeus", 3..1000,
+        "Syötä rivien lukumäärä arvoväliltä 3-1000: ")
     val ruudukko = rakennaRuudukko(leveys, korkeus)
     var laby: Array<Array<Solmu>>
 

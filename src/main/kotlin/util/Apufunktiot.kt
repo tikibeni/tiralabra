@@ -115,19 +115,22 @@ fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>): Array<Array<String>> {
         piirtorivi += "# "
 
         rivi.forEachIndexed { sarakeNro, solmu ->
-            // Loogisesti kukin solmu on itsessään osana reittiä labyrintin ollessa täydellinen, joten lisätään aina tyhjä.
+            // Loogisesti kukin solmu on itsessään osana reittiä labyrintin ollessa täydellinen, joten lisätään aina
+            // tyhjä.
             piirtorivi += "  "
 
             // Ensiksi käsitellään rivisuunta (ylös-alas)
             if (riviNro + 1 < labyrintti.size) {
-                alempipiirto += if (solmu.suunnat.contains("alas") && labyrintti[riviNro + 1][sarakeNro].suunnat.contains("ylos")) {
+                alempipiirto += if (solmu.suunnat.contains("alas") &&
+                    labyrintti[riviNro + 1][sarakeNro].suunnat.contains("ylos")) {
                     "  "
                 } else "# "
             }
 
             // Sitten käsitellään sarakesuunta (vasen-oikea)
             if (sarakeNro + 1 < labyrintti[0].size) {
-                piirtorivi += if (solmu.suunnat.contains("oikea") && labyrintti[riviNro][sarakeNro + 1].suunnat.contains("vasen")) {
+                piirtorivi += if (solmu.suunnat.contains("oikea") &&
+                    labyrintti[riviNro][sarakeNro + 1].suunnat.contains("vasen")) {
                     "  "
                 } else "# "
             }

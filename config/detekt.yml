@@ -78,7 +78,7 @@ comments:
 complexity:
   active: true
   ComplexCondition:
-    active: true
+    active: false
     threshold: 5
   ComplexInterface:
     active: false
@@ -125,7 +125,7 @@ complexity:
     active: false
     threshold: 3
   NestedBlockDepth:
-    active: true
+    active: false
     threshold: 4
   ReplaceSafeCallChainWithRun:
     active: false

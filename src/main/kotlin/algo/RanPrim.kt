@@ -34,10 +34,18 @@ class RanPrim {
      * Lisää annetulle solmulle naapurit sille osoitettuun taulukkoon.
      */
     private fun naapurit(y: Int, x: Int, ruudukko: Array<Array<Solmu>>) {
-        if (x > 0 && ruudukko[y][x - 1].arvo != 0)                    ruudukko[y][x].naapurit += Triple(y, x-1, ruudukko[y][x-1])
-        if (x + 1 < ruudukko[y].size && ruudukko[y][x + 1].arvo != 0) ruudukko[y][x].naapurit += Triple(y, x+1, ruudukko[y][x+1])
-        if (y > 0 && ruudukko[y - 1][x].arvo != 0)                    ruudukko[y][x].naapurit += Triple(y-1, x, ruudukko[y-1][x])
-        if (y + 1 < ruudukko.size && ruudukko[y + 1][x].arvo != 0)    ruudukko[y][x].naapurit += Triple(y+1, x, ruudukko[y+1][x])
+        if (x > 0 && ruudukko[y][x - 1].arvo != 0) {
+            ruudukko[y][x].naapurit += Triple(y, x-1, ruudukko[y][x-1])
+        }
+        if (x + 1 < ruudukko[y].size && ruudukko[y][x + 1].arvo != 0) {
+            ruudukko[y][x].naapurit += Triple(y, x+1, ruudukko[y][x+1])
+        }
+        if (y > 0 && ruudukko[y - 1][x].arvo != 0) {
+            ruudukko[y][x].naapurit += Triple(y-1, x, ruudukko[y-1][x])
+        }
+        if (y + 1 < ruudukko.size && ruudukko[y + 1][x].arvo != 0) {
+            ruudukko[y][x].naapurit += Triple(y+1, x, ruudukko[y+1][x])
+        }
     }
 
     /**
