@@ -3,7 +3,7 @@ package luolastogeneraattori.algo
 import luolastogeneraattori.util.*
 
 class Wilson {
-    private var kaydyt = arrayOf<Array<Ruutu>>()
+    private var kaydyt = arrayOf<Array<Solmu>>()
     private var suunnat = arrayOf("ylos", "alas", "oikea", "vasen")
     private var vastakkainen = mapOf("oikea" to "vasen", "vasen" to "oikea", "ylos" to "alas", "alas" to "ylos")
     private var deltaX = mapOf("ylos" to 0, "alas" to 0, "oikea" to 1, "vasen" to -1)
@@ -18,13 +18,13 @@ class Wilson {
         var x = alkuX
         var y = alkuY
 
-        // Navigoidaan aina reitin seuraavaan ruutuun apulistojen avulla
+        // Navigoidaan aina reitin seuraavaan solmuun apulistojen avulla
         while (true) {
-            val suunta = kaydyt[y][x].suunta
-            if (suunta !== null) {
-                reitti += Triple(y, x, suunta)
-                y += deltaY[suunta]!!
-                x += deltaX[suunta]!!
+            val solmusuunta = kaydyt[y][x].suunta
+            if (solmusuunta !== null) {
+                reitti += Triple(y, x, solmusuunta)
+                y += deltaY[solmusuunta]!!
+                x += deltaX[solmusuunta]!!
             } else break
         }
 
@@ -34,7 +34,7 @@ class Wilson {
     /**
      * Wilsonin algoritmin satunnaiskävely
      */
-    private fun randomKavely(ruudukko: Array<Array<Ruutu>>): Array<Triple<Int, Int, String>> {
+    private fun randomKavely(ruudukko: Array<Array<Solmu>>): Array<Triple<Int, Int, String>> {
         while (true) {
             // Y-akselin koordinaatti (rivi)
             var cy = ruudukko.indices.random()
@@ -60,14 +60,14 @@ class Wilson {
                     val ny = cy + deltaY[suunta]!!
                     val nx = cx + deltaX[suunta]!!
 
-                    // Onko naapuriruutu validi (ruudukon sisällä)
+                    // Onko naapurisolmu validi (ruudukon sisällä)
                     if (nx >= 0 && ny >= 0 && ny < ruudukko.size && nx < ruudukko[ny].size) {
                         // Validin naapurin löydettyä asetetaan se poistumisvektoriksi
                         kaydyt[cy][cx].suunta = suunta
 
                         // Jos naapuriruudussa on jo käyty, niin poistutaan kävelystä.
                         if (ruudukko[ny][nx].arvo == 0) {
-                            // Muussa tapauksessa jatketaan kävelyä (kunnes törmätään jo käytyyn ruutuun)
+                            // Muussa tapauksessa jatketaan kävelyä (kunnes törmätään jo käytyyn solmuun)
                             // Asetetaan uudet koordinaatit ja indikoidaan kävelyn jatkuvuus
                             cy = ny
                             cx = nx
@@ -87,7 +87,7 @@ class Wilson {
     /**
      * Algoritmin ajaminen niin kauan kunnes kaikki ruudut on käyty läpi
      */
-    fun muunnaLabyrintiksi(ruudukko: Array<Array<Ruutu>>): Array<Array<Ruutu>> {
+    fun muunnaLabyrintiksi(ruudukko: Array<Array<Solmu>>): Array<Array<Solmu>> {
         // Alustetaan erillinen käyntejä seuraava taulukko
         kaydyt = alustaKaydyt(ruudukko)
 
@@ -95,11 +95,11 @@ class Wilson {
         val satunnaisX = ruudukko.indices.random()
         val satunnaisY = ruudukko[0].indices.random()
 
-        // Asetetaan loppupisteen arvoksi 2, joka indikoi maaliruutua
+        // Asetetaan loppupisteen arvoksi 2, joka indikoi maalisolmua
         ruudukko[satunnaisY][satunnaisX].arvo = 2
 
-        var ruutujaJaljella = ruudukko.size * ruudukko[0].size - 1
-        while (ruutujaJaljella > 0) {
+        var solmujaJaljella = ruudukko.size * ruudukko[0].size - 1
+        while (solmujaJaljella > 0) {
             for (it in randomKavely(ruudukko)) {
                 if (ruudukko[it.first][it.second].arvo == 0) {
                     // Suunnan osoittama y-koordinaatti (rivi)
@@ -107,12 +107,12 @@ class Wilson {
                     // Suunnan osoittama x-koordinaatti (sarake)
                     val nx = it.second + deltaX[it.third]!!
 
-                    ruudukko[it.first][it.second].suunta = it.third
+                    ruudukko[it.first][it.second].suunnat += it.third
                     ruudukko[it.first][it.second].arvo = 1
-                    ruudukko[ny][nx].suunta = vastakkainen[it.third]
-                    ruutujaJaljella -= 1
+                    ruudukko[ny][nx].suunnat += vastakkainen[it.third]!!
+                    solmujaJaljella -= 1
 
-                    if (ruutujaJaljella == 0) break
+                    if (solmujaJaljella == 0) break
                 }
             }
         }

@@ -11,10 +11,10 @@ fun main() {
     val w = Wilson()
     val p = RanPrim()
     val algoLuku = tarkistaLukuSyote("algoritmi", 1..2, "\nKummalla algoritmilla rakennetaan (syötä luku):\n\t1. Wilson\n\t2. Satunnaistettu Prim\n")
-    val leveys = tarkistaLukuSyote("leveys", 3..10, "Syötä ruudukon leveys arvoväliltä 3-10: ")
-    val korkeus = tarkistaLukuSyote("korkeus", 3..10, "Syötä ruudukon korkeus arvoväliltä 3-10: ")
+    val leveys = tarkistaLukuSyote("leveys", 3..10, "Syötä solmujen lukumäärä riveillä arvoväliltä 3-10: ")
+    val korkeus = tarkistaLukuSyote("korkeus", 3..10, "Syötä rivien lukumäärä arvoväliltä 3-10: ")
     val ruudukko = rakennaRuudukko(leveys, korkeus)
-    var laby: Array<Array<Ruutu>>
+    var laby: Array<Array<Solmu>>
 
     // Muodostetaan labyrintti ja mitataan kesto millisekuntiajastimella
     val kesto = when (algoLuku) {
@@ -29,5 +29,5 @@ fun main() {
     // Labyrintin tulostus
     piirraLabyrintti(laby)
 
-    println("Rakentamisessa kesti $kesto ms. \nRuudukon koko $leveys * $korkeus")
+    println("Rakentamisessa kesti $kesto ms. \nRuudukossa solmuja: $leveys * $korkeus")
 }

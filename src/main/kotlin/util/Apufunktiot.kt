@@ -3,13 +3,13 @@ package luolastogeneraattori.util
 /**
  * Funktio 2D-ruudukon rakentamiseksi, jossa lopulta ilmenee labyrinttiin lisätyt ruudut
  */
-fun rakennaRuudukko(leveys: Int, korkeus: Int): Array<Array<Ruutu>> {
-    var ruudukko = arrayOf<Array<Ruutu>>()
+fun rakennaRuudukko(leveys: Int, korkeus: Int): Array<Array<Solmu>> {
+    var ruudukko = arrayOf<Array<Solmu>>()
     // Rivejä (korkeus)
     for (n in 1..korkeus) {
-        var rivi = arrayOf<Ruutu>()
-        // Rivissä ruutuja (leveys)
-        for (j in 1..leveys) { rivi += Ruutu(null, 0, arrayOf()) }
+        var rivi = arrayOf<Solmu>()
+        // Rivissä solmuja (leveys)
+        for (j in 1..leveys) { rivi += Solmu(null, arrayOf(), 0, arrayOf()) }
         ruudukko += rivi
     }
 
@@ -22,13 +22,13 @@ fun rakennaRuudukko(leveys: Int, korkeus: Int): Array<Array<Ruutu>> {
  *
  * @param [ruudukko] johon perustuen alustetaan
  */
-fun alustaKaydyt(ruudukko: Array<Array<Ruutu>>): Array<Array<Ruutu>> {
-    var kaydyt = arrayOf<Array<Ruutu>>()
+fun alustaKaydyt(ruudukko: Array<Array<Solmu>>): Array<Array<Solmu>> {
+    var kaydyt = arrayOf<Array<Solmu>>()
 
     for (n in 1..ruudukko.size) {
-        var rivi = arrayOf<Ruutu>()
+        var rivi = arrayOf<Solmu>()
         for (j in 1..ruudukko[0].size) {
-            val r = Ruutu(null, 0, arrayOf())
+            val r = Solmu(null, arrayOf(), 0, arrayOf())
             rivi += r
         }
         kaydyt += rivi
@@ -40,7 +40,7 @@ fun alustaKaydyt(ruudukko: Array<Array<Ruutu>>): Array<Array<Ruutu>> {
 /**
  * Annetun ruudukon tulostamista varten
  */
-fun debugRuudukko(ruudukko: Array<Array<Ruutu>>) {
+fun debugRuudukko(ruudukko: Array<Array<Solmu>>) {
     ruudukko.forEach { rivi ->
         rivi.forEach { arvo -> print("${arvo.arvo} ") }
         println()
@@ -74,7 +74,7 @@ fun tarkistaLukuSyote(nimi: String, arvovali: IntRange, viesti: String): Int {
 /**
  * Piirretään labyrintti lasketusta ruudukosta
  */
-fun piirraLabyrintti(labyrintti: Array<Array<Ruutu>>) {
+fun piirraLabyrintti(labyrintti: Array<Array<Solmu>>) {
     /*
     1 1 1       # # # # #       # # # # # # #       # # # # # # #
     1 1 1   ->  # 1 1 1 #  ->   # 1   1   1 #  ->   #   #       #
@@ -89,7 +89,7 @@ fun piirraLabyrintti(labyrintti: Array<Array<Ruutu>>) {
         - Jos ruudun oikealla puolella on naapuri, johon ei ole tai josta ei ole suuntaa
         - Tämän myötä täytyy olla valmis teoriassa piirtämään jokaisen ruudun väliin seinä joko pysty tai vaakasuunnassa
         -> Siispä seinille pitää varata tilaa aina rivi.length - 1 verran
-        -> Näin ollen kokonaistilavaativuus on: ruutuLkm + väliseinäVara + ulkoseinät
+        -> Näin ollen kokonaistilavaativuus on: solmuLkm + väliseinäVara + ulkoseinät
                                             <-> rivi.length + (rivi.length - 1) + 2
                                             <-> rivi.length * 2 - 1
      */
@@ -105,32 +105,44 @@ fun piirraLabyrintti(labyrintti: Array<Array<Ruutu>>) {
     labyrintti.forEachIndexed { riviNro, rivi ->
         var piirtorivi: Array<String> = arrayOf()
         var alempipiirto: Array<String> = arrayOf()
-        if (riviNro + 1 < labyrintti.size) alempipiirto = arrayOf()
+
+        if (riviNro + 1 < labyrintti.size) {
+            // Pystyseinä
+            alempipiirto += "# "
+        }
 
         // Pystyseinää
         piirtorivi += "# "
 
-        rivi.forEachIndexed { sarakeNro, ruutu ->
-            // Loogisesti kukin ruutu on itsessään osana reittiä, joten lisätään aina tyhjä.
+        rivi.forEachIndexed { sarakeNro, solmu ->
+            // Loogisesti kukin solmu on itsessään osana reittiä labyrintin ollessa täydellinen, joten lisätään aina tyhjä.
             piirtorivi += "  "
 
             // Ensiksi käsitellään rivisuunta (ylös-alas)
             if (riviNro + 1 < labyrintti.size) {
-                if (ruutu.suunta == "alas" && labyrintti[riviNro + 1][sarakeNro].suunta == "ylos") {
+                if (solmu.suunnat.contains("alas") && labyrintti[riviNro + 1][sarakeNro].suunnat.contains("ylos")) {
                     alempipiirto += "  "
                 } else alempipiirto += "# "
             }
 
             // Sitten käsitellään sarakesuunta (vasen-oikea)
             if (sarakeNro + 1 < labyrintti[0].size) {
-                if (ruutu.suunta == "oikea" && labyrintti[riviNro][sarakeNro + 1].suunta == "vasen") {
+                if (solmu.suunnat.contains("oikea") && labyrintti[riviNro][sarakeNro + 1].suunnat.contains("vasen")) {
                     piirtorivi += "  "
                 } else piirtorivi += "# "
+            }
+
+            if (riviNro + 1 < labyrintti.size && sarakeNro + 1 < labyrintti[0].size) {
+                alempipiirto += "# "
             }
         }
         // Pystyseinää
         piirtorivi += "# "
         piirtoruutu += piirtorivi
+        if (alempipiirto.isNotEmpty()) {
+            alempipiirto += "# "
+            piirtoruutu += alempipiirto
+        }
     }
 
     piirtoruutu += vaakaseina
@@ -138,10 +150,9 @@ fun piirraLabyrintti(labyrintti: Array<Array<Ruutu>>) {
     // Tulostetaan rakennettu labyrintti:
     println("Labyrintti:")
 
-
     piirtoruutu.forEach { rivi ->
-        rivi.forEach { ruutu ->
-            print(ruutu)
+        rivi.forEach { solmu ->
+            print(solmu)
         }
         println()
     }

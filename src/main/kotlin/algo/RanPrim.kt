@@ -7,9 +7,9 @@ class RanPrim {
     private var reuna = arrayOf<Pair<Int, Int>>()
 
     /**
-     * Merkitään annettu ruutu osaksi reunaa.
+     * Merkitään annettu solmu osaksi reunaa.
      */
-    private fun lisaaReunaan(y: Int, x: Int, ruudukko: Array<Array<Ruutu>>) {
+    private fun lisaaReunaan(y: Int, x: Int, ruudukko: Array<Array<Solmu>>) {
         if (x >= 0 &&
             y >= 0 &&
             y < ruudukko.size &&
@@ -19,10 +19,10 @@ class RanPrim {
     }
 
     /**
-     * Merkitään annettu ruutu osaksi ruudukkoa ja käsitellään sen naapurit.
+     * Merkitään annettu solmu osaksi ruudukkoa ja käsitellään sen naapurit.
      */
-    private fun merkitse(y: Int, x: Int, ruudukko: Array<Array<Ruutu>>) {
-        // Ruutu osaksi labyrinttia.
+    private fun merkitse(y: Int, x: Int, ruudukko: Array<Array<Solmu>>) {
+        // Solmu osaksi labyrinttia.
         ruudukko[y][x].arvo = 1
         lisaaReunaan(y, x - 1, ruudukko)
         lisaaReunaan(y, x + 1, ruudukko)
@@ -31,9 +31,9 @@ class RanPrim {
     }
 
     /**
-     * Lisää annetulle ruudulle naapurit sille osoitettuun taulukkoon.
+     * Lisää annetulle solmulle naapurit sille osoitettuun taulukkoon.
      */
-    private fun naapurit(y: Int, x: Int, ruudukko: Array<Array<Ruutu>>) {
+    private fun naapurit(y: Int, x: Int, ruudukko: Array<Array<Solmu>>) {
         if (x > 0 && ruudukko[y][x - 1].arvo != 0)                    ruudukko[y][x].naapurit += Triple(y, x-1, ruudukko[y][x-1])
         if (x + 1 < ruudukko[y].size && ruudukko[y][x + 1].arvo != 0) ruudukko[y][x].naapurit += Triple(y, x+1, ruudukko[y][x+1])
         if (y > 0 && ruudukko[y - 1][x].arvo != 0)                    ruudukko[y][x].naapurit += Triple(y-1, x, ruudukko[y-1][x])
@@ -56,41 +56,41 @@ class RanPrim {
     /**
      * Primin algoritmi
      */
-    fun muunnaLabyrintiksi(ruudukko: Array<Array<Ruutu>>): Array<Array<Ruutu>> {
+    fun muunnaLabyrintiksi(ruudukko: Array<Array<Solmu>>): Array<Array<Solmu>> {
         // Lasketaan satunnaisesti koordinaatit lähtöruudulle
         val satunnaisX = ruudukko.indices.random()
         val satunnaisY = ruudukko[0].indices.random()
 
-        // Alustetaan reunaruudukko ja vähennetään lukumäärästä ensimmäinen reunaruutu
+        // Alustetaan reunaruudukko ja vähennetään lukumäärästä ensimmäinen reunasolmu
         var counter = ruudukko.size * ruudukko[0].size - 1
 
-        // Merkitään ruudukkoon aloitusruutu ja lisätään sen naapurit osaksi reunaa
+        // Merkitään ruudukkoon aloitussolmu ja lisätään sen naapurit osaksi reunaa
         merkitse(satunnaisY, satunnaisX, ruudukko)
 
-        // Luupataan niin kauan, kun reunataulukossa on ruutuja
+        // Luupataan niin kauan, kun reunataulukossa on solmuja
         do {
-            // Valitaan ja poistetaan sattumalla piste reunalta
-            val reunaPiste = reuna.random()
-            reuna = reuna.filter { it != reunaPiste }.toTypedArray()
+            // Valitaan ja poistetaan sattumalla solmu reunalta
+            val reunaSolmu = reuna.random()
+            reuna = reuna.filter { it != reunaSolmu }.toTypedArray()
             counter--
 
-            // Rakennetaan naapuritaulukko valitulle reunaruudulle
-            naapurit(reunaPiste.first, reunaPiste.second, ruudukko)
+            // Rakennetaan naapuritaulukko valitulle reunasolmulle
+            naapurit(reunaSolmu.first, reunaSolmu.second, ruudukko)
 
-            // Valitaan naapureista sattumalla ruutu
-            val naapuri = ruudukko[reunaPiste.first][reunaPiste.second].naapurit.random()
+            // Valitaan naapureista sattumalla solmu
+            val naapuri = ruudukko[reunaSolmu.first][reunaSolmu.second].naapurit.random()
 
-            // Lasketaan suunta reunaruudusta naapuriruutuun
-            val suunt = suunta(reunaPiste.first, reunaPiste.second, naapuri.first, naapuri.second)
+            // Lasketaan suunta reunasolmusta naapurisolmuun
+            val suunt = suunta(reunaSolmu.first, reunaSolmu.second, naapuri.first, naapuri.second)
 
-            // Merkitään valitun reunaruudun suunnaksi laskettu suunta
-            ruudukko[reunaPiste.first][reunaPiste.second].suunta = suunt
+            // Merkitään valitun reunasolmun suunnaksi laskettu suunta
+            ruudukko[reunaSolmu.first][reunaSolmu.second].suunnat += suunt
 
-            // Merkitään naapuriruudun suunnaksi vastakkaissuunta suhteessa reunaruutuun
-            ruudukko[naapuri.first][naapuri.second].suunta = vastakkainen[suunt]
+            // Merkitään naapurisolmun suunnaksi vastakkaissuunta suhteessa reunasolmuun
+            ruudukko[naapuri.first][naapuri.second].suunnat += vastakkainen[suunt]!!
 
-            // Merkitään reunaruutu osaksi ruudukkoa
-            merkitse(reunaPiste.first, reunaPiste.second, ruudukko)
+            // Merkitään reunasolmu osaksi ruudukkoa
+            merkitse(reunaSolmu.first, reunaSolmu.second, ruudukko)
         } while (counter > 0)
 
         return ruudukko
