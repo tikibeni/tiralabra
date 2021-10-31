@@ -1,6 +1,7 @@
 # Luolastogeneraattori
 
-Aloittamani harjoitustyö kurssilla **[TKT20010](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118025627-2021-08-01) (Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit)** lukuvuoden 2021-2022 1. periodilla.
+Tekemäni harjoitustyö kurssilla **[TKT20010](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118025627-2021-08-01) 
+(Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit)** lukuvuoden 2021-2022 1. periodilla.
 
 ## Lataaminen ja käyttö (tl;dr)
 
