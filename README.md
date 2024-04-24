@@ -19,6 +19,12 @@ Tekemäni harjoitustyö kurssilla **[TKT20010](https://studies.helsinki.fi/opint
 
 Tarkemmin [täällä](./doc/ohje.md).
 
+Vaihtoehtoisesti voit ajaa sovelluksen Docker-kontista:
+
+```sh
+~/luolastogen$ docker build . -t tira && docker run -it tira
+```
+
 ## Dokumentaatiota
 
 [Linkki](./doc/maarittely.md) määrittelydokumenttiin.
